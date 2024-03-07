@@ -1,13 +1,40 @@
 <script>
-
+import AppSearch from '../components/AppSearch.vue';
+import { store } from '../store.js';
+import axios from 'axios';
+export default {
+  components: {
+    AppSearch
+  },
+  data() {
+    return {
+      store,
+    }
+  },
+  methods: {
+    
+    searchFilms() {
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=16cf9fe0e8aeee3cfc3c7f142b6b1f36&query=${this.searchTitle}`)
+        .then(res => {
+          this.store.films = res.data.results;
+          console.log(res.data.results);
+        })
+    }
+  }
+}
 </script>
 
 
 <template>
 
-    <div id="film-container">
-        
+  <div id="film-container">
+    <div v-for="film in store.films" :key="film.id">
+      <h3>{{ film.title }}</h3>
+      <h2>{{ film.original_title }}</h2>
+      <p>{{ film.overview }}</p>
+      <span>{{ film.vote_average }}</span>
     </div>
+  </div>
 
 </template>
 
