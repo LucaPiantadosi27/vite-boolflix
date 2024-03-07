@@ -12,6 +12,27 @@ export default {
     }
   },
   methods: {
+
+    imageFlag(flag) {
+      switch (flag) {
+        case 'en':
+          return '../public/gb.png';
+        case 'au':
+          return '../public/au.png';
+        case 'br':
+          return '../public/br.png';
+        case 'it':
+          return '../public/it.png';
+        case 'kr':
+          return '../public/kr.png';
+        case 'ja':
+          return '../public/jp.png';
+        case 'us':
+          return '../public/us.png';
+        default:
+          return '../public/zw.png';
+      }
+    },
     
     searchFilms() {
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=16cf9fe0e8aeee3cfc3c7f142b6b1f36&query=${this.searchTitle}`)
@@ -31,6 +52,7 @@ export default {
     <div v-for="film in store.films" :key="film.id">
       <h3>{{ film.title }}</h3>
       <h2>{{ film.original_title }}</h2>
+      <img :src="imageFlag(film.original_language)" alt="Flag" />
       <p>{{ film.overview }}</p>
       <span>{{ film.vote_average }}</span>
     </div>
