@@ -8,17 +8,29 @@ export default {
     store,
     };
   },
-  
+
   methods: {
     searchFilms() {
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=16cf9fe0e8aeee3cfc3c7f142b6b1f36&query=${this.searchTitle}`)
         .then(res => {
             this.store.films = res.data.results;
-            console.log(res.data.results);
+            
         })
-    }
+      },
+    searchTv() {
+        axios.get(`https://api.themoviedb.org/3/search/tv?api_key=16cf9fe0e8aeee3cfc3c7f142b6b1f36&query=${this.searchTitle}`)
+        .then(res => {
+            this.store.series = res.data.results;
+        })
+    },
+    search() {
+      this.searchFilms();
+      this.searchTv();
+    
+    
+      }
   }
-}
+};
 </script>
 
 
@@ -26,7 +38,7 @@ export default {
 
 <div id="search-bar">
     <input type="search" v-model="searchTitle" placeholder="Cerca">
-    <button class="btn" @click="searchFilms">Cerca Film</button>
+    <button class="btn" @click="search">Cerca</button>
   </div>
 </template>
 
