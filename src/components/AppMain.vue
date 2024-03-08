@@ -156,6 +156,7 @@ h2{
 }
 .card-image .item {
   padding: 20px;
+  font-size: 15px;
   font-family: sans-serif;
   text-align: left;
 }
