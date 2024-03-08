@@ -79,13 +79,14 @@ export default {
   
     <input type="search" v-model="searchTitle" placeholder="Cerca">
     
+    <!-- milestone 6 -->
     <select v-model="filmSelezionaGenere" @change="filterFilmGen(filmSelezionaGenere)">
-      <option value="">  Genere Film</option>
+      <option value=""> Genere Film</option>
       <option v-for="genreFilms in genereFilm" :value="genreFilms.id" :key="genreFilms.id">{{ genreFilms.name }}</option>
     </select>
 
     <select v-model="serieSelezionaGenere" @change="filterSeriesGen(serieSelezionaGenere)">
-      <option value="">  Genere Serie Tv</option>
+      <option value=""> Genere Serie Tv</option>
       <option v-for="genreSeries in genereSerieTv" :value="genreSeries.id" :key="genreSeries.id">{{ genreSeries.name }}</option>
     </select>
     
