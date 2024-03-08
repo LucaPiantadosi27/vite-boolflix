@@ -52,18 +52,18 @@ export default {
     #search-bar.transition {
     border: solid rgba(88, 88, 88, 0.979) 0.1px;
     cursor: pointer;
-    opacity: 3;
+    opacity: 4;
   }
     
     input {
-    width: 650px;
+    width: 400px;
     padding: 5px 10px;
     padding: 10px 12px;
     
     }
 
     button {
-        padding: 5px 10px;
+        padding: 5px 3px;
         cursor: pointer;
     }
 
