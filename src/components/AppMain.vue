@@ -107,7 +107,7 @@ export default {
 <style lang="scss">
 
 #big-container {
-  padding: 30px;
+  padding: 20px;
 
   h3{
     margin-top: 5px;
@@ -119,11 +119,12 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 20px;
+  padding: 10px;
 }
 .cards {
-  width: 18%;
+  width: 15%;
   margin-bottom: 25px;
+  
 }
 
 h2{
