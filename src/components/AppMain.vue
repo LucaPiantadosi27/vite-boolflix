@@ -122,12 +122,13 @@ export default {
   padding: 20px;
 }
 .cards {
-  width: 19%;
-  margin-bottom: 40px;
+  width: 18%;
+  margin-bottom: 25px;
 }
 
 h2{
   margin-bottom: 5px;
+  
 }
 .card-image {
  
@@ -164,6 +165,7 @@ h2{
   margin-top: 0;
 }
 .stars {
+  color: goldenrod;
   font-size: 15px;
 }
 .overview {

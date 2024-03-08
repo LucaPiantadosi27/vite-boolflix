@@ -44,8 +44,9 @@ export default {
         </ul>
       </div>
     </div>
-
+    <div id="mid">
     <AppSearch></AppSearch>
+    </div>
 
     <div id="right">
     <div id="user" @mouseenter="showDropdown = true" @mouseleave="showDropdown = false">
@@ -94,6 +95,11 @@ nav {
   #left {
   display: flex;
   align-items: center;
+  
+}
+
+#mid{
+margin-right: 25px;
 }
 
 #right{
@@ -137,7 +143,7 @@ nav {
 
 .fa-bell {
   margin-top: 20px;
-  
+  margin-right: 20px;
   color: rgb(255, 255, 255);
   font-size: 30px;
   position: relative;
