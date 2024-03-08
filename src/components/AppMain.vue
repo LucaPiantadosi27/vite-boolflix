@@ -122,8 +122,8 @@ export default {
   padding: 10px;
 }
 .cards {
-  width: 15%;
-  margin-bottom: 25px;
+  width: 13%;
+  margin-bottom: 12px;
   
 }
 
