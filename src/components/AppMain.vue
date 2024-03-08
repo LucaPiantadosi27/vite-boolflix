@@ -2,6 +2,7 @@
 import AppSearch from '../components/AppSearch.vue';
 import { store } from '../store.js';
 import axios from 'axios';
+
 export default {
   components: {
     AppSearch
@@ -51,13 +52,6 @@ export default {
       }
     },
     
-    // searchFilms() {
-    //   axios.get(`https://api.themoviedb.org/3/search/movie?api_key=16cf9fe0e8aeee3cfc3c7f142b6b1f36&query=${this.searchTitle}`)
-    //     .then(res => {
-    //       this.store.films = res.data.results;
-    //       console.log(res.data.results);
-    //     })
-    // }
   }
 }
 </script>
@@ -66,60 +60,114 @@ export default {
 <template>
 
 <!-- Film -->
-  <div id="film-container">
-    <div v-for="film in store.films" :key="film.id">
-      <h3>{{ film.title }}</h3>
-      <img :src="'https://image.tmdb.org/t/p/w300' + film.backdrop_path" alt="Label" />
-      <h2>{{ film.original_title }}</h2>
-      <img :src="imageFlag(film.original_language)" alt="Flag" />
-      <p>{{ film.overview }}</p>
-      
-      <div class="stars">
-        <span v-html="starsVote(transformVoteAverage(film.vote_average))"></span>
-      </div>
-
-    </div>
-  </div>
-
-
-<!-- Serie TV -->
-
-  <div id="tvSeries-container">
-    <div v-for="tvSeries in store.series" :key="tvSeries.id">
-      <h3>{{ tvSeries.title }}</h3>
-      <img :src="'https://image.tmdb.org/t/p/w300' + tvSeries.backdrop_path" alt="Label" />
-      <h2>{{ tvSeries.original_title }}</h2>
-      <img :src="imageFlag(tvSeries.original_language)" alt="Flag" />
-      <p>{{ tvSeries.overview }}</p>
-
-      <div class="stars">
-        <span v-html="starsVote(transformVoteAverage(tvSeries.vote_average))"></span>
+<div id="big-container">
+  <h1>Film ricercati:</h1>
+  
+  <div class="cards-container">
+      <div class="cards" v-for="film in store.films" :key="film.id">
+        <div class="card-image" :style="{ backgroundImage: film.backdrop_path ? 'url(https://image.tmdb.org/t/p/w300' + film.backdrop_path + ')' : 'url(https://www.acuto.org/immagini/INTERRO.jpg)' }">
+          <div class="transition">
+            <h3>{{ film.title }}</h3>
+            <div class="item">
+              <h2>{{ film.original_title }}</h2>
+              <img :src="imageFlag(film.original_language)" alt="Flag" />
+              <p class="overview">{{ film.overview }}</p>
+              <div class="stars">
+                <span v-html="starsVote(transformVoteAverage(film.vote_average))"></span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
+    <!-- Serie TV -->
+    <h1>Serie Tv:</h1>
+    <div class="cards-container">
+      <div class="cards" v-for="tvSeries in store.series" :key="tvSeries.id">
+        <div class="card-image" :style="{ backgroundImage: tvSeries.backdrop_path ? 'url(https://image.tmdb.org/t/p/w300' + tvSeries.backdrop_path + ')' : 'url(https://www.acuto.org/immagini/INTERRO.jpg)'}">
+          <div class="transition">
+            <h3>{{ tvSeries.name }}</h3>
+            <div class="item">
+              <h2>{{ tvSeries.original_name }}</h2>
+              <img :src="imageFlag(tvSeries.original_language)" alt="Flag" />
+              <p class="overview">{{ tvSeries.overview }}</p>
+              <div class="stars">
+                <span v-html="starsVote(transformVoteAverage(tvSeries.vote_average))"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 
 <style lang="scss">
 
-#film-container {
-  width: 90%;
-  margin: 0 auto;
+#big-container {
+  padding: 30px;
+
+  h3{
+    margin-top: 5px;
+    margin-left: 20px;
+  }
+
+.cards-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   padding: 20px;
-  background-color: rgb(58, 56, 53);
-  
+}
+.cards {
+  width: 19%;
+  margin-bottom: 40px;
 }
 
-#tvSeries-container {
-  width: 90%;
-  margin: 0 auto;
+h2{
+  margin-bottom: 5px;
+}
+.card-image {
+ 
+  width: 100%;
+  height: 380px;
+  background-size: cover;
+  object-fit: contain;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+}
+.card-image .transition {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+.card-image:hover .transition {
+  border: solid rgba(88, 88, 88, 0.979) 0.1px;
+  opacity: 3;
+}
+.card-image .item {
   padding: 20px;
-  background-color: rgb(58, 56, 53);
-  
+  font-family: sans-serif;
+  text-align: left;
 }
-
-.stars{
-  font-size: 15px ;
+.card-image .item h3 {
+  margin-top: 0;
 }
-</style>
+.stars {
+  font-size: 15px;
+}
+.overview {
+  max-height: 200px;
+  overflow: hidden;
+}
+}
+</style>  

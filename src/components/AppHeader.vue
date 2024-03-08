@@ -32,7 +32,10 @@ export default {
 
   <nav>
 
-    NAVBAR
+    <!-- Logo Netflix -->
+    <div>    
+      <img src="/public/Netflix-Logo.png" alt="logo netflix">
+    </div>
     <AppSearch></AppSearch>
 
   </nav>
@@ -43,12 +46,24 @@ export default {
 <style lang="scss">
 
 nav {
-    width: 100%;
-    height: 50px;
-    background-color: rgb(12, 12, 11);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  height: 80px;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 60px ;
+  padding-right: 30%;
+  
+
+  
+  img{
+    
+    height: 80px;
+    width: 150px;
+  }
 }
 
 </style>

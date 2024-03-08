@@ -37,8 +37,9 @@ export default {
 <template>
 
 <div id="search-bar">
+  
     <input type="search" v-model="searchTitle" placeholder="Cerca">
-    <button class="btn" @click="search">Cerca</button>
+    <button class="btn" @click="search"><i class="fa-solid fa-magnifying-glass"></i> Cerca</button>
   </div>
 </template>
 
@@ -48,14 +49,25 @@ export default {
 #search-bar {
     display: flex;
     
+    #search-bar.transition {
+    border: solid rgba(88, 88, 88, 0.979) 0.1px;
+    cursor: pointer;
+    opacity: 3;
+  }
+    
     input {
-        padding: 5px 10px;
+    width: 650px;
+    padding: 5px 10px;
+    padding: 10px 12px;
+    
     }
 
     button {
         padding: 5px 10px;
         cursor: pointer;
     }
+
+  
 }
 
 </style>
