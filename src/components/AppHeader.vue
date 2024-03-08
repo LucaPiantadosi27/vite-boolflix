@@ -142,8 +142,8 @@ margin-right: 25px;
 }
 
 .fa-bell {
-  margin-top: 20px;
-  margin-right: 20px;
+  margin-top: 23px;
+  margin-right: 25px;
   color: rgb(255, 255, 255);
   font-size: 30px;
   position: relative;
@@ -177,18 +177,18 @@ margin-right: 25px;
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: white;
-  color: black;
-  border: 1px solid #ccc;
+  background-color: rgb(43, 42, 51);
+  color: white;
+  border: 1px solid #b6b5b5;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 8px;
-  z-index: 2;
+  padding: 5px;
+  z-index: 5;
   cursor: pointer;
     div {
-      padding: 8px 16px;
+      padding: 1px 14px;
       &:hover {
-        background-color: #f0f0f0;
+        background-color: #5e5555;
       }
     }
   }

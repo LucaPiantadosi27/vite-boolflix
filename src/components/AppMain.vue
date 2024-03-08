@@ -136,11 +136,11 @@ h2{
   width: 100%;
   height: 380px;
   background-size: cover;
-  object-fit: contain;
   background-position: center;
   position: relative;
   cursor: pointer;
 }
+
 .card-image .transition {
   position: absolute;
   top: 0;
